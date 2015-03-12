@@ -1,6 +1,6 @@
 {
 "version": 3,
-"mappings": "AACA,IAAI;EACH,WAAW,EAAE,qBAAS",
+"mappings": "AAAA,IAAI;EACH,WAAW,EAAE,qBAAS",
 "sources": ["sass/application.sass"],
 "names": [],
 "file": "application.css"
