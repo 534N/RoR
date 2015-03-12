@@ -1,0 +1,32 @@
+<div class='container' >
+
+	<h1>Music App</h1>
+
+	<div class='row'>
+		<table class="u-full-width" id="schedule-table">
+
+			<% @details.each do |obj| %>
+				<tr>
+					<td>
+						<%= obj[:status] %>
+					</td>
+					<td>
+						<%= obj[:artist] %>
+					</td>
+					<td>
+						<%= obj[:date] %>
+					</td>
+					<td>
+						<%= obj[:time] %>
+					</td>
+					<td>
+						<%= obj[:venue] %>
+					</td>
+					<td>
+						<%= obj[:price] %>
+					</td>
+
+				</tr>
+			<% end %>
+		</table>
+</div>
