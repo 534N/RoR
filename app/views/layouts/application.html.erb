@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>RoR</title>
-  
-  <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
-  
-  <%= stylesheet_link_tag    'skeleton', media: 'all', 'data-turbolinks-track' => true %>
-  <%= stylesheet_link_tag    'normalize', media: 'all', 'data-turbolinks-track' => true %>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	<title>RoR</title>
 
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+	<link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+
+	<%= stylesheet_link_tag    'skeleton', media: 'all', 'data-turbolinks-track' => true %>
+	<%= stylesheet_link_tag    'normalize', media: 'all', 'data-turbolinks-track' => true %>
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+
+	<script src="http://connect.soundcloud.com/sdk.js"></script>
+	
+
+	<%= csrf_meta_tags %>
 </head>
 <body>
 
 <%= yield %>
 
+<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 </body>
 </html>
