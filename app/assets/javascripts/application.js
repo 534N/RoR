@@ -222,22 +222,6 @@
 		});
 	}
 
-
-	function displayWarning(msg, target) {
-		var wrapper = document.createElement('div');
-		wrapper.className = 'warning twelve columns'
-
-		var text = document.createTextNode(msg);
-		wrapper.appendChild(text);
-
-		target.parentNode.appendChild(wrapper);
-
-		setTimeout(function() {
-			console.log(target.parentNode.childNodes)
-			target.parentNode.removeChild(wrapper);
-		}, 3000);
-	}
-
 	function loadTrack(trackURL, target) {
 		var options = {
 			auto_play: false,
@@ -285,18 +269,48 @@
 
 			return div;
 		}
+
+		var warningNode = function(msg) {
+			var d = document.createDocumentFragment();
+
+			var placeholder = document.createElement('div');
+			placeholder.className = 'one column';
+			placeholder.innerHTML = "&nbsp;";
+
+			var div = document.createElement('div');
+			div.className = 'warning eleven columns';
+
+			var icon = document.createElement('i');
+			icon.className = 'mdi mdi-alert-circle';
+			var text = document.createTextNode(msg);
+
+			div.appendChild(icon);
+			div.appendChild(text);
+			// div.innerHTML = msg;
+
+			d.appendChild(placeholder);
+			d.appendChild(div);
+
+			return d;
+		}
+
+		var d = document.createDocumentFragment();
+		var wrapper = document.createElement('div');
+		wrapper.className = 'event-detail twelve columns active'
+
 		// 
 		// 
 		// 
 		if (err) {
-
+			var msg = warningNode(err);
+			wrapper.appendChild(msg);
 		}
 		else if (ap.tracks.length == 0) {
-			displayWarning("No track found for " + ap.artist, target);
-		} else {
-			var d = document.createDocumentFragment();
-			var wrapper = document.createElement('div');
-			wrapper.className = 'event-detail twelve columns active'
+			var msg = warningNode("No track found for " + ap.artist);
+			wrapper.appendChild(msg);
+		} 
+		else {
+			
 			// 
 			// previous track
 			// 
@@ -317,9 +331,10 @@
 			wrapper.appendChild(div2);
 			wrapper.appendChild(div3);
 
-			d.appendChild(wrapper);
-			target.parentNode.appendChild(d);
 		}
+
+		d.appendChild(wrapper);
+		target.parentNode.appendChild(d);
 
 		
 	}
