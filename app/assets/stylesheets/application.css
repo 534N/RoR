@@ -1,5 +1,9 @@
 body {
   font-family: "Raleway", sans-serif; }
+  body #SC {
+    right: 0;
+    bottom: 0;
+    margin: auto 0; }
   body #music-app .event {
     line-height: 2.5em;
     padding-left: 20px;
@@ -13,16 +17,51 @@ body {
       line-height: 3em;
       background: #eee;
       min-height: 100px; }
-    body #music-app .event .artist {
-      cursor: pointer; }
-      body #music-app .event .artist:hover {
-        color: #A5D6A7; }
+    body #music-app .event .listen .mdi {
+      font-size: 1.2em;
+      cursor: pointer;
+      opacity: 0.5; }
+      body #music-app .event .listen .mdi.mdi-headphones:hover {
+        color: #f50; }
+    body #music-app .event .listen.active .mdi-headphones {
+      opacity: 0.8;
+      color: #f50;
+      text-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3); }
+      body #music-app .event .listen.active .mdi-headphones:hover {
+        opacity: 1; }
     body #music-app .event .event-detail {
+      -webkit-transition: all 2s;
+      -moz-transition: all 2s;
+      transition: all 2s;
       font-size: 0.9em;
-      border-top: 2px solid #A5D6A7;
-      margin-bottom: 20px; }
-      body #music-app .event .event-detail .avatar {
-        vertical-align: middle; }
+      margin-bottom: 20px;
+      display: none; }
+      body #music-app .event .event-detail.active {
+        display: block; }
+        body #music-app .event .event-detail.active .player {
+          -webkit-transition: all 2s;
+          -moz-transition: all 2s;
+          transition: all 2s;
+          margin-left: 0;
+          min-width: 80%;
+          height: 100px;
+          background: #f5f5f5; }
+        body #music-app .event .event-detail.active .ctrl i[disabled="true"] {
+          cursor: default;
+          opacity: 0.2; }
+        body #music-app .event .event-detail.active .ctrl.left {
+          border-top: 3px solid #f50; }
+        body #music-app .event .event-detail.active .ctrl.right {
+          margin-left: 0;
+          border-top: 3px solid #f50; }
+        body #music-app .event .event-detail.active i {
+          font-size: 3.5em;
+          cursor: pointer;
+          opacity: 0.5;
+          line-height: 2em;
+          vertical-align: middle; }
+          body #music-app .event .event-detail.active i:hover {
+            opacity: 1; }
     body #music-app .event .warning {
       color: #E53935;
       font-size: 0.5em; }
