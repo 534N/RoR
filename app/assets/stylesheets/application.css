@@ -1,15 +1,21 @@
 body {
-  font-family: "Raleway", sans-serif; }
-  body #SC {
-    right: 0;
-    bottom: 0;
-    margin: auto 0; }
+  font-family: "Open Sans Condensed", sans-serif; }
+  body #music-app h1 {
+    font-family: "Lobster", cursive;
+    color: #555; }
+  body #music-app .header {
+    padding-left: 15px;
+    border-bottom: 2px solid #f5f5f5; }
+    body #music-app .header div {
+      font-size: 2em;
+      color: #ddd; }
   body #music-app .event {
     line-height: 2.5em;
     padding-left: 20px;
     -webkit-transition: all 4s;
     -moz-transition: all 4s;
-    transition: all 4s; }
+    transition: all 4s;
+    border-bottom: 2px solid #f5f5f5; }
     body #music-app .event .sc-panel {
       -webkit-transition: all 2s;
       -moz-transition: all 2s;

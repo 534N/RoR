@@ -35,6 +35,5 @@ class TestController < ApplicationController
 	  end
 	  detail
 	end
-
   end
 end

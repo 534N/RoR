@@ -2,10 +2,32 @@
 
 	<h1>Music App</h1>
 
-	<div id='SC'></div>
-
+	<div class='header row'>
+		<div class="one column">
+			&nbsp;
+		</div>
+		<div class="three columns">
+			<i class="mdi mdi-account-star"></i>
+		</div>
+		<div class="two columns">
+			<i class="mdi mdi-calendar"></i>
+		</div>
+		<div class="two columns">
+			<i class="mdi mdi-clock"></i>
+		</div>
+		<div class="two columns">
+			<i class="mdi mdi-map-marker"></i>
+		</div>
+		<div class="two columns">
+			<i class="mdi mdi-ticket"></i>
+		</div>
+	</div>
 	<% @details.each do |obj| %>
 		<% 
+			if obj[:artist] == "" || obj[:artist] == "ARTIST"
+				next
+			end
+
 			if obj[:status] == "SOLD OUT" 
 				rowStatus = 'soldout'
 				price = 'SOLD OUT'
