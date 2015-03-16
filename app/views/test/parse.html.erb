@@ -1,32 +1,63 @@
-<div class='container' >
+<div class='container' id="music-app">
 
 	<h1>Music App</h1>
 
-	<div class='row'>
-		<table class="u-full-width" id="schedule-table">
+	<div class='header row'>
+		<div class="one column">
+			&nbsp;
+		</div>
+		<div class="three columns">
+			<i class="mdi mdi-account-star"></i>
+		</div>
+		<div class="two columns">
+			<i class="mdi mdi-calendar"></i>
+		</div>
+		<div class="two columns">
+			<i class="mdi mdi-clock"></i>
+		</div>
+		<div class="two columns">
+			<i class="mdi mdi-map-marker"></i>
+		</div>
+		<div class="two columns">
+			<i class="mdi mdi-ticket"></i>
+		</div>
+	</div>
+	<% @details.each do |obj| %>
+		<% 
+			if obj[:artist] == "" || obj[:artist] == "ARTIST"
+				next
+			end
 
-			<% @details.each do |obj| %>
-				<tr>
-					<td>
-						<%= obj[:status] %>
-					</td>
-					<td>
-						<%= obj[:artist] %>
-					</td>
-					<td>
-						<%= obj[:date] %>
-					</td>
-					<td>
-						<%= obj[:time] %>
-					</td>
-					<td>
-						<%= obj[:venue] %>
-					</td>
-					<td>
-						<%= obj[:price] %>
-					</td>
+			if obj[:status] == "SOLD OUT" 
+				rowStatus = 'soldout'
+				price = 'SOLD OUT'
+			else 
+				rowStatus = ''
+				price = obj[:price]
+			end
+		%>
+		<div class='row event <%= rowStatus %> '>
 
-				</tr>
-			<% end %>
-		</table>
+			<div class="one column listen">
+				<i class="mdi mdi-headphones" data-action='headphone' data-artist="<%= obj[:artist] %>"></i>
+			</div>
+			<div class="three columns artist">
+				<%= obj[:artist] %>
+			</div>
+			<div class="two columns date">
+				<%= obj[:date] %>
+			</div>
+			<div class="two columns time">
+				<%= obj[:time] %>
+			</div>
+			<div class="two columns venue">
+				<%= obj[:venue] %>
+			</div>
+
+			<div class="two columns price">
+				<%= price %>
+			</div>
+		</div>
+	<% end %>
+
 </div>

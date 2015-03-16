@@ -1,20 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>RoR</title>
-  
-  <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
-  
-  <%= stylesheet_link_tag    'skeleton', media: 'all', 'data-turbolinks-track' => true %>
-  <%= stylesheet_link_tag    'normalize', media: 'all', 'data-turbolinks-track' => true %>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	<title>RoR</title>
 
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+	<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+
+	<%= stylesheet_link_tag    'skeleton', media: 'all', 'data-turbolinks-track' => true %>
+	<%= stylesheet_link_tag    'normalize', media: 'all', 'data-turbolinks-track' => true %>
+	<%= stylesheet_link_tag    'materialdesignicons', media: 'all', 'data-turbolinks-track' => true %>
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+
+	<script src="https://w.soundcloud.com/player/api.js"></script>
+	<script src="http://connect.soundcloud.com/sdk.js"></script>
+	
+
+	<%= csrf_meta_tags %>
 </head>
 <body>
 
 <%= yield %>
 
+<%= javascript_include_tag 'artist_panel', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'helper', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 </body>
 </html>
