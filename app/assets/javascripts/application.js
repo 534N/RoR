@@ -185,7 +185,7 @@
 			var ap = new ArtistPanel(artist_name);
 			var artist_username = artist_name.replace(/\s/g, '').toLowerCase();
 
-			var url = "http://api.soundcloud.com/users/" + artist_username + ".json?client_id=" + clientID;
+			var url = window.location.protocol + "//api.soundcloud.com/users/" + artist_username + ".json?client_id=" + clientID;
 			// 
 			// look up artist info in soundcloud
 			// 
