@@ -208,7 +208,7 @@
 	}
 
 	function findTracks(target, ap, callback) {
-		var url = "http://api.soundcloud.com/users/" + ap.artistID + "/tracks.json?client_id=" + clientID;
+		var url = window.location.protocol + "//api.soundcloud.com/users/" + ap.artistID + "/tracks.json?client_id=" + clientID;
 		H.ajax(url, function(err, response) {
 			if (err) {
 				// 
