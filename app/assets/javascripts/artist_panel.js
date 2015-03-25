@@ -22,5 +22,3 @@ ArtistPanel.prototype.updateUserInfo = function(userObj) {
 ArtistPanel.prototype.updateTrackInfo = function(tracks) {
 	this.tracks = tracks;
 }
-
-

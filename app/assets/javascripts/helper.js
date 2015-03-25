@@ -38,6 +38,8 @@ var H = (function() {
 		return result;
 	}
 
+
 	return my;
+
 
 })();

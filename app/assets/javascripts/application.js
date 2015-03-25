@@ -18,13 +18,14 @@
 (function() {
 	var clientID = '998651536d9a2dcea17749d75862ef39';
 
+	SCService.init(clientID);
+
 	SC.initialize({
 	 	client_id: 	clientID
 	});
 
 	var ele = document.getElementById('music-app');
 	var _artistBuffer = {};
-	var _activePanels = {};
 
 	// 
 	// add event listener 
@@ -169,7 +170,6 @@
 				node.className += ' active';
 			})
 		}
-		
 	}
 
 	function get_user(artist_name, target, callback) {
@@ -185,14 +185,15 @@
 			var ap = new ArtistPanel(artist_name);
 			var artist_username = artist_name.replace(/\s/g, '').toLowerCase();
 
-			var url = window.location.protocol + "//api.soundcloud.com/users/" + artist_username + ".json?client_id=" + clientID;
 			// 
 			// look up artist info in soundcloud
 			// 
-			H.ajax(url, function(err, response) {
-				if (err) {
-					callback('Unable to identify artist: ' + ap.artist, target, ap);
-				} else {
+			SCService.load(
+				artist_username+'.json', 
+				function(response) {
+					callback("Unable to identify artist : " + ap.artist, target, ap)
+				},
+				function(response) {
 					// 
 					// once artist has been found, update the ap obj and store it in the buffer
 					// 
@@ -202,24 +203,25 @@
 					// next, look up the tracks of the artist
 					// 
 					findTracks(target, ap, callback);
-				}
-			});
+				} 
+			);
 		}
 	}
 
 	function findTracks(target, ap, callback) {
-		var url = window.location.protocol + "//api.soundcloud.com/users/" + ap.artistID + "/tracks.json?client_id=" + clientID;
-		H.ajax(url, function(err, response) {
-			if (err) {
-				// 
-			} else {
+		SCService.load(
+			ap.artistID+'/tracks.json', 
+			function(response) {
+				//
+			},
+			function(response) {
 				ap.updateTrackInfo(response);
 				// 
 				// done looking up, move on to display the result
 				// 
 				callback(null, target, ap);
-			}
-		});
+			} 
+		);
 	}
 
 	function loadTrack(trackURL, target) {
